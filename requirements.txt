@@ -1,9 +1,12 @@
 python-dotenv
 pandas
 numpy
+scipy
 pymongo
 certifi
 pymongo[srv]
 scikit-learn
-
+dill
+pyaml
+pickle
 ##-e .   add this in last and run requirements.txt
