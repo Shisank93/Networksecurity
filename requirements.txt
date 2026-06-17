@@ -3,7 +3,7 @@ pandas
 numpy
 pymongo
 certifi
-
+pymongo[srv]
 
 
 ##-e .   add this in last and run requirements.txt
