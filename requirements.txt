@@ -6,6 +6,9 @@ pymongo
 certifi
 pymongo[srv]
 scikit-learn
+mlflow
 pyaml
-pickle
+dagshub
+
+
 ##-e .   add this in last and run requirements.txt

@@ -1,7 +1,8 @@
 from Networksecurity.components.data_ingestion import DataIngestion
 from Networksecurity.components.data_validation import DataValidation
 from Networksecurity.components.data_transformation import DataTransformation
-from Networksecurity.entity.config_entity import DataIngestionConfig , DataValidationConfig , DataTransformationConfig
+from Networksecurity.components.model_trainer import ModelTrainer
+from Networksecurity.entity.config_entity import DataIngestionConfig , DataValidationConfig , DataTransformationConfig , ModelTrainerConfig
 from Networksecurity.entity.config_entity import TrainingPipelineConfig
 
 
@@ -13,25 +14,32 @@ import sys
 
 if __name__=='__main__':
     try:
-        training_pipeline_config = TrainingPipelineConfig()
-        data_ingestion_config = DataIngestionConfig(training_pipeline_config)
+        trainingpipelineconfig = TrainingPipelineConfig()
+        data_ingestion_config = DataIngestionConfig(trainingpipelineconfig)
         data_ingestion = DataIngestion(data_ingestion_config)  ## initialising data injetion or make object 
         logging.info("Initiate the data injestion")
         dataingestionartifact=  data_ingestion.initiate_data_ingestion()
         logging.info("data initiation completed")
         print(dataingestionartifact)
-        data_validation_config = DataValidationConfig(training_pipeline_config)
+        data_validation_config = DataValidationConfig(trainingpipelineconfig)
         data_validation = DataValidation(dataingestionartifact ,data_validation_config=data_validation_config)
         logging.info("initiated data validation")
         data_validation_artifact =data_validation.initiate_data_validation()
         logging.info("data validation completed")
         print(data_validation_artifact)
         logging.info("data transformation started")
-        data_transformation_config=DataTransformationConfig(training_pipeline_config)
+        data_transformation_config=DataTransformationConfig(trainingpipelineconfig)
         data_transformation = DataTransformation(data_validation_artifact , data_transformation_config)
         data_transformation_artifact = data_transformation.initiate_data_transformation()
         print(data_transformation_artifact)
         logging.info("data transformation completed")
+
+        logging.info("Model Training sstared")
+        model_trainer_config=ModelTrainerConfig(trainingpipelineconfig)
+        model_trainer=ModelTrainer(model_trainer_config=model_trainer_config,data_transformation_artifact=data_transformation_artifact)
+        model_trainer_artifact=model_trainer.initiate_model_trainer()
+
+        logging.info("Model Training artifact created")
 
 
     except Exception as e:
