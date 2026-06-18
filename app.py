@@ -27,8 +27,8 @@ from Networksecurity.utils.ml_utils.model.estimator import NetworkModel
 
 client = pymongo.MongoClient(mongo_db_url, tlsCAFile=ca)
 
-from Networksecurity.constant.training_pipeline import DATA_INGESTION_COLLECTION_NAME
-from Networksecurity.constant.training_pipeline import DATA_INGESTION_DATABASE_NAME
+from Networksecurity.constants.training_pipeline import DATA_INGESTION_COLLECTION_NAME
+from Networksecurity.constants.training_pipeline import DATA_INGESTION_DATABASE_NAME
 
 database = client[DATA_INGESTION_DATABASE_NAME]
 collection = database[DATA_INGESTION_COLLECTION_NAME]
