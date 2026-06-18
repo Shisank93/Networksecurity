@@ -9,6 +9,6 @@ scikit-learn
 mlflow
 pyaml
 dagshub
-
-
+fastapi
+uvicorn
 ##-e .   add this in last and run requirements.txt
