@@ -11,4 +11,5 @@ pyaml
 dagshub
 fastapi
 uvicorn
+python-multipart
 ##-e .   add this in last and run requirements.txt
