@@ -30,7 +30,7 @@ from urllib.parse import urlparse
 
 import dagshub
 
-dagshub.init(repo_owner='shisankyadav8', repo_name='Networksecurity', mlflow=True)
+#dagshub.init(repo_owner='shisankyadav8', repo_name='Networksecurity', mlflow=True)
 
 os.environ["MLFLOW_TRACKING_URI"]="https://dagshub.com/shisankyadav8/Networksecurity.mlflow"
 os.environ["MLFLOW_TRACKING_USERNAME"]="shisankyadav8"
@@ -49,6 +49,8 @@ class ModelTrainer:
             raise NetworkSecurityException(e,sys)
         
     def track_mlflow(self,best_model,classificationmetric):
+        dagshub.init(repo_owner='shisankyadav8', repo_name='Networksecurity', mlflow=True)
+        
         mlflow.set_registry_uri("https://dagshub.com/shisankyadav8/Networksecurity.mlflow")
         tracking_url_type_store = urlparse(mlflow.get_tracking_uri()).scheme
         with mlflow.start_run():
