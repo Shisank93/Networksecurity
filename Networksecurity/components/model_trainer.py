@@ -34,7 +34,7 @@ dagshub.init(repo_owner='shisankyadav8', repo_name='Networksecurity', mlflow=Tru
 
 os.environ["MLFLOW_TRACKING_URI"]="https://dagshub.com/shisankyadav8/Networksecurity.mlflow"
 os.environ["MLFLOW_TRACKING_USERNAME"]="shisankyadav8"
-os.environ["MLFLOW_TRACKING_PASSWORD"]="a3b11c8c93ae732d9856db0d6d93d98bb8cb8b67"
+os.environ["MLFLOW_TRACKING_PASSWORD"]="fa08659ae9ff2482371eeba3d9714f0f2d1e5b96"
 
 
 
